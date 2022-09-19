@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    string = ""
-    for c in my_string:
-        if c == 'c' or c == 'C':
-            continue
-        else:
-            string = string + c
-    return string 
+    str = ""
+    for i in my_string:
+        if i != chr(67) and i != chr(99):
+            str = str + i
+    return str
