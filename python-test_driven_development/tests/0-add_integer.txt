@@ -1,0 +1,80 @@
+============================
+Test
+============================
+
+This library is very simple, since it only has one function called
+``add_integer()``.
+
+Numbers
+=======
+
+::
+
+	>>> function = __import__("0-add_integer").add_integer
+
+	>>> function(1, 2)
+	3
+
+	>>> function(100, -2)
+	98
+
+	>>> function(2)
+	100
+
+	>>> function(100.3, -2)
+	98
+
+	>>> function(2, b=98)
+	100
+
+	
+	>> function('a', 1)
+	Traceback (most recent call last):
+       	    ...
+	TypeError: a must be an integer
+
+	>>> function('a', 'b')
+	Traceback (most recent call last):
+    	    ...
+	TypeError: a must be an integer
+
+	>>> function(567, 'b')
+	Traceback (most recent call last):
+    	    ...
+	TypeError: b must be an integer
+
+	>>> function(None)
+	Traceback (most recent call last):
+    	    ...
+	TypeError: a must be an integer
+
+	>>> function(3.22, 9.22)
+	12
+
+	>>> function(2.33)
+	100
+
+	>>> function(float('inf'))
+	Traceback (most recent call last):
+	    ...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> function(NaNFloat('NaN'))
+	Traceback (most recent call last):
+	   ...
+	NameError: name 'NaNFloat' is not defined
+	
+	>>> function('1a')
+	Traceback (most recent call last):
+	    ...
+	TypeError: a must be an integer
+
+	>>> function(9, '2b')
+	Traceback (most recent call last):
+	    ...
+	TypeError: b must be an integer
+
+	>>> function (float('nan'))
+	Traceback (most recent call last):
+	    ...
+	ValueError: cannot convert float NaN to integer
