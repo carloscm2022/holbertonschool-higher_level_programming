@@ -1,28 +1,23 @@
 #!/usr/bin/python3
-"""
-This program take the file add_item.json, and add the
-parameters to the list inside this file.
-- If the file doesn't exist create it.
-- If no exist parameters do nothing or create the list if the file is empty.
+"""This module named 7-add_item.py
+   Created on Sunday, October 02, 2022
+   @author: Daisy Chipana Lapa
 """
 
-from sys import argv
-from os.path import exists
 
-save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
-load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
+import json
+import sys
+import os
 
-namefile = "add_item.json"
-argc = len(argv)
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-file_list = []
-
-if exists(namefile):
-    file_list = load_from_json_file(namefile)
-
-if (argc == 1):
-    save_to_json_file(file_list, namefile)
+len_arg = len(sys.argv)
+filename = "add_item.json"
+if not os.path.exists(filename):
+    my_list = []
 else:
-    for index in range(1, argc):
-        file_list.append(argv[index])
-    save_to_json_file(file_list, namefile)
+    my_list = load_from_json_file(filename)
+for i in range(1, len_arg):
+    my_list.append(sys.argv[i])
+save_to_json_file(my_list, filename)
